@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual SC Normalizado / SCDE</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-image: url('images/background.jpg'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+
+        header {
+            background-color: #3498db;
+            padding: 10px;
+            text-align: center;
+            color: #fff;
+        }
+
+        section {
+            text-align: center;
+            padding: 20px;
+        }
+
+        label {
+            font-size: 20px;
+        }
+
+        #search {
+            font-size: 16px;
+            width: 300px;
+            padding: 5px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px auto;
+            width: 80%;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        a {
+            display: block;
+            padding: 10px;
+            font-size: 16px;
+            text-decoration: none;
+            background-color: #3498db;
+            color: #fff;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        a:hover {
+            background-color: #2980b9;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #ddd;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Manual SC Normalizado / SCDE</h1>
+    </header>
+    
+    <section>
+        <label for="search">Intervenções de Diagnóstico:</label>
+        <input type="text" id="search" onkeyup="filterItems()" placeholder="Digite para pesquisar">
+
+        <ul id="itemList">
+            <li><a href="Avaliarauto-cuidadohigiene.html">Avaliar auto-cuidado higiene</a></li>
+            <li><a href="Avaliaroalimentar-se.html">Avaliar o alimentar-se</a></li>
+            <li><a href="Avaliardeglutiçao.html">Avaliar deglutição</a></li>
+            <li><a href="VómitoouabsorçaoSondaemdrenagem.html">Vômito ou absorção Sonda em drenagem</a></li>
+            <li><a href="Avaliarposicionar-se.html">Avaliar posicionar-se</a></li>
+            <li><a href="Avaliartransferir-se.html">Avaliar transferir-se</a></li>
+            <li><a href="Avaliaroandar.html">Avaliar o Andar</a></li>
+            <li><a href="DispneiaFuncional.html">Dispneia Funcional</a></li>
+            <li><a href="AvaliarInfeçao.html">Avaliar Infecção</a></li>
+            <li><a href="Riscodequeda.html">Risco de queda</a></li>
+            <li><a href="ULCERADEPRESSAO.html">Úlcera de pressão</a></li>
+            <li><a href="Avaliarcomunicaçãoexpressiva.html">Avaliar comunicação expressiva</a></li>
+            <li><a href="Avaliarauto-cuidadousosanitário.html">Avaliar auto-cuidado uso sanitário</a></li>
+            <li><a href="Avaliarincontinênciaurinaria.html">Avaliar incontinência urinária</a></li>
+            <li><a href="Avaliarincontinênciaintestinal.html">Avaliar incontinência intestinal</a></li>
+            <li><a href="Retençãourinária.html">Retenção urinária</a></li>
+            <li><a href="Avaliarauto-cuidadodaOstomia.html">Avaliar auto-cuidado da Ostomia</a></li>
+            <li><a href="SinaisVitais(Prescriçõesmédicas).html">Sinais Vitais (Prescrições médicas)</a></li>
+            <li><a href="AvaliarconfusãoimplicaTA,FC,FR,SpO2eTemp.html">Avaliar confusão implica TA, FC, FR, SpO2 e Temp</a></li>
+            <li><a href="Agitação(Focodeatenção).html">Agitação (Foco de atenção)</a></li>
+            <li><a href="Eritemadefralda(focodeatenção).html">Eritema de fralda (Foco de atenção)</a></li>
+            <li><a href="Maceração(focodeatenção).html">Maceração (Foco de atenção)</a></li>
+            <li><a href="Arritmia(focodeatenção).html">Arritmia (Foco de atenção)</a></li>
+            <li><a href="Ferida(focodeatenção).html">Ferida (Foco de atenção)</a></li>
+            <li><a href="Coma(Doenteventilado).html">Coma (Doente Ventilado)</a></li>
+            <li><a href="Desidrataçao.html">Desidratação</a></li>
+            <li><a href="Edema.html">Edema</a></li>
+            <li><a href="Perdasanguinea.html">Perda sanguínea</a></li>
+            <li><a href="Visão.html">Visão</a></li>
+            <li><a href="Audição.html">Audição</a></li>
+            <li><a href="Morte.html">Morte</a></li>
+        </ul>
+    </section>
+
+    <script>
+        function filterItems() {
+            var input = document.getElementById('search');
+            var filter = input.value.toUpperCase();
+            var itemList = document.getElementById('itemList');
+            var items = itemList.getElementsByTagName('li');
+
+            for (var i = 0; i < items.length; i++) {
+                var link = items[i].getElementsByTagName("a")[0];
+                if (link) {
+                    var itemText = link.textContent || link.innerText;
+                    if (itemText.toUpperCase().includes(filter)) {
+                        items[i].style.display = "";
+                    } else {
+                        items[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+
+    <footer>
+        <p>&copy; 2025 - Manual SC Normalizado</p>
+    </footer>
+</body>
+</html>
